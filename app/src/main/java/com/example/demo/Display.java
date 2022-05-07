@@ -44,7 +44,12 @@ public class Display extends AppCompatActivity {
                 tv_desc.setText(dm.getExplanation());
                 tv_copyright.setText(dm.getCopyright());
                 tv_date.setText(dm.getDate());
-                Glide.with(getApplicationContext()).load(dm.getHdurl()).into(iv);
+                if(dm.getHdurl()!=null){
+                    Glide.with(getApplicationContext()).load(dm.getHdurl()).into(iv);
+                }
+                else{
+                    iv.setVisibility(View.GONE);
+                }
             });
         }
     }

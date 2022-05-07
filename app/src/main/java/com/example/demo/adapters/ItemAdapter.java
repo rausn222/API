@@ -50,7 +50,6 @@ public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.ItemViewHolde
 
     @Override
     public int getItemCount() {
-        Log.i("data", "> Size " + articles.size());
         return articles.size();
     }
 
