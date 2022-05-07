@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<ImageModel> articleArrayList = new ArrayList<>();
     ItemAdapter newsAdapter;
     RecyclerView rvHeadline;
-    DataViewModel newsViewModel;
-
+    DataViewModel dataViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if(!isInternetAvailable()){
             rvHeadline = findViewById(R.id.rvNews);
-            newsViewModel = ViewModelProviders.of(this).get(DataViewModel.class);
-            newsViewModel.init(getApplicationContext());
-            newsViewModel.getNewsRepository1().observe(this, newsResponse -> {
+            dataViewModel = ViewModelProviders.of(this).get(DataViewModel.class);
+            dataViewModel.init(getApplicationContext());
+            dataViewModel.getNewsRepository1().observe(this, newsResponse -> {
                 List<ImageModel> newsArticles = newsResponse;
                 articleArrayList.addAll(newsArticles);
                 newsAdapter.notifyDataSetChanged();

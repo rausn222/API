@@ -21,7 +21,7 @@ import java.util.List;
 public class Display extends AppCompatActivity {
     ImageView iv;
     TextView tv_title,tv_desc,tv_copyright,tv_date;
-    DataViewModel newsViewModel;
+    DataViewModel dataViewModel;
     DataModel dm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +35,9 @@ public class Display extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             int value = extras.getInt("index");
-            newsViewModel = ViewModelProviders.of(this).get(DataViewModel.class);
-            newsViewModel.init(getApplicationContext());
-            newsViewModel.getNewsRepository().observe(this, newsResponse -> {
+            dataViewModel = ViewModelProviders.of(this).get(DataViewModel.class);
+            dataViewModel.init(getApplicationContext());
+            dataViewModel.getNewsRepository().observe(this, newsResponse -> {
                 List<DataModel> newsArticles = newsResponse;
                 dm = newsArticles.get(value);
                 tv_title.setText(dm.getTitle());
