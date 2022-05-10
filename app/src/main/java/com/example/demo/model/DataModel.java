@@ -19,7 +19,13 @@ public class DataModel {
     @Expose
     private String title;
 
-
+    public DataModel(String copyright, String date, String explanation, String hdurl, String title){
+        this.hdurl = hdurl;
+        this.copyright = copyright;
+        this.date = date;
+        this.explanation = explanation;
+        this.title = title;
+    }
     public String getHdurl() {
         return hdurl;
     }

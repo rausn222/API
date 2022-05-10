@@ -50,6 +50,12 @@
             android:maxHeight="250dp"
             android:minHeight="250dp" />
 
+        <ProgressBar
+            android:id="@+id/progress1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:visibility="visible" />
+
         <TextView
             android:id="@+id/description"
             android:layout_width="match_parent"
